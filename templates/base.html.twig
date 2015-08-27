@@ -1,8 +1,37 @@
-100
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="ООО ПКБ Петробалт"/>
 
-<title> Tess - {% block title %}{% endblock %}</title>
+    <title> Tess - {% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    {% block css %}    {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    {% block javascript %}    {% endblock %}
+</head>
+<body>
 
-{% block content %}
-{% endblock %}
+<div class="contain wrap">
+    <div class="header">
+        <img src="img/petrobalt-logo.jpg" class="header__logo">
+        <a class="nav__item">ГЛАВНАЯ</a>
+        <a class="nav__item">О КОМПАНИИ</a>
+        <a class="nav__item__selected">УСЛУГИ</a>
+        <a class="nav__item">ПРОЕКТЫ</a>
+        <a class="nav__item">НОВОСТИ</a>
+        <a class="nav__item">КОНТАКТЫ</a>
+    </div>
+    {% block content %}
+    {% endblock %}
 
-200
+</div>
+
+</body>
+</html>

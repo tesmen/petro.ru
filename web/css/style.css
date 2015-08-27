@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+div.wrap {
+    margin: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) !important; /* Параметры тени */
+    width: 1020px;
+}
+
+div.header {
+    width: 100%;
+    height: 70px;
+    border-bottom: 3px solid #4682b4;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.header__logo {
+    margin: 10px;
+}
+
+.nav__bar {
+    display: inline-block;
+    border: 1px solid green;
+    float: right;
+}
+
+.nav__item {
+    display: inline-block;
+    height: 25px;
+    padding: 0;
+    margin-bottom: -3px;
+    width: 100px;
+    text-align: center;
+    color: #080808;
+    font-weight: 600;
+    vertical-align: bottom;
+}
+
+.nav__item:hover{
+    color: #888888;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav__item__selected {
+    display: inline-block;
+    height: 25px;
+    padding: 0;
+    margin-bottom: -3px;
+    width: 100px;
+    text-align: center;
+    font-weight: 600;
+    vertical-align: bottom;
+    background-color: #4682b4;
+    color: #eeeeee;
+}
+.nav__item__selected:hover{
+    color: #eeeeee;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+div.content{
+    margin: auto;
+    width: 960px;
+    height: 800px;
+    border: 1px solid black;
+}

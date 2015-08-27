@@ -1,6 +1,30 @@
 {% extends 'base.html.twig' %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="css/slides.css"/>
+{% endblock %}
+{% block javascript %}
+    <script src="js/slides.js"></script>
+    <script>
+        $(function () {
+            $("#slides").slides({
+                responsive: true,
+                height: 200
+            });
+        });
+        $("document").ready(function () {
+            $("#slides").slides("play");
+        });
+    </script>
+{% endblock %}
 
 {% block title %} INDEX {% endblock %}
+
 {% block content %}
-<h3>{{ title }}</h3>
+    <div id="slides">
+        <img src="/img/slide-1.jpg">
+        <img src="/img/slide-2.jpg">
+    </div>
+<div class="content">
+    text
+</div>
 {% endblock %}

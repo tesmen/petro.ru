@@ -1,0 +1,15 @@
+#slides {
+    margin: 20px auto;
+    width: 900px;
+    height: 200px;
+    border: solid 1px #000000;
+}
+
+.slides,
+.slidesCurrent,
+.slidesNext,
+.slidesPrevious,
+.slidesPagination,
+.slidesNavigation{
+    display: none;
+}

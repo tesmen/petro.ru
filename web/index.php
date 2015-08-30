@@ -75,6 +75,7 @@ class PetroBalt
         $template = $this->twigEnv->loadTemplate('main.html.twig');
         return $template->render([
             'title' => 'Главная',
+            'page' => 'main'
         ]);
     }
 
@@ -82,7 +83,8 @@ class PetroBalt
     {
         $template = $this->twigEnv->loadTemplate('about.html.twig');
         return $template->render([
-            'title' => 'О Компании'
+            'title' => 'О Компании',
+            'page' => 'about'
         ]);
     }
 
@@ -90,7 +92,8 @@ class PetroBalt
     {
         $template = $this->twigEnv->loadTemplate('articles.html.twig');
         return $template->render([
-            'title' => 'Статьи'
+            'title' => 'Статьи',
+            'page' => 'articles'
         ]);
     }
 
@@ -98,7 +101,8 @@ class PetroBalt
     {
         $template = $this->twigEnv->loadTemplate('projects.html.twig');
         return $template->render([
-            'title' => "Проекты"
+            'title' => "Проекты",
+            'page' => 'projects'
         ]);
     }
 
@@ -106,7 +110,8 @@ class PetroBalt
     {
         $template = $this->twigEnv->loadTemplate('news.html.twig');
         return $template->render([
-            'title' => "Новости"
+            'title' => "Новости",
+            'page' => 'news'
         ]);
     }
 
@@ -114,7 +119,8 @@ class PetroBalt
     {
         $template = $this->twigEnv->loadTemplate('contacts.html.twig');
         return $template->render([
-            'title' => "Контакты"
+            'title' => "Контакты",
+            'page' => 'contacts'
         ]);
     }
 }

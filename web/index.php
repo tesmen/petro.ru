@@ -2,39 +2,57 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$app = new Silex\Application();
-$app['debug'] = true;
+
 
 class PetroBalt
 {
     private $silexApp;
+    private $twigEnv;
 
-    public function __construct($silexApp){
-        $this->silexApp= $silexApp;
 
+    public function __construct($silexApp)
+    {
+        Twig_Autoloader::register();
+        $this->twigLoader = new Twig_Loader_Filesystem('../templates');
+        $this->twigEnv = new Twig_Environment($this->twigLoader, []);
+
+        $this->silexApp = new Silex\Application();
+        $this->silexApp['debug'] = true;
         $this->loadRoutes();
-
         $this->silexApp->run();
     }
 
-    public function init(){
+    public function init()
+    {
 
     }
 
-    public function loadRoutes(){
-        $app = $this->silexApp;
+    public function loadRoutes()
+    {
 
-        $this->silexApp->get('/', function () use ($app) {
-            return "/";
+        $this->silexApp->get('/', function () {
+            return $this->mainAction();
         });
 
-        $this->silexApp->get('/{name}/{sec}', function ($sec, $name) {
-            return '{name}/{sec} ' . $name . $sec;
+        $this->silexApp->get('/about', function () {
+            return $this->aboutAction();
         });
+
+//        $this->silexApp->get('/{name}/{sec}', function ($sec, $name) {
+//            return $this->aboutAction();
+//        });
     }
 
-    public function mainAction(){
+    public function mainAction()
+    {
+        $template = $this->twigEnv->loadTemplate('index.html.twig');
+        echo $template->render([
+        ]);
+    }
 
+    public function aboutAction()
+    {
+        return "About";
     }
 }
 
@@ -42,12 +60,6 @@ $site = new PetroBalt($app);
 
 ?>
 <!--
-
-Twig_Autoloader::register();
-$loader = new Twig_Loader_Filesystem('../templates');
-$twig = new Twig_Environment($loader, [
-//    'cache' => '../cache',
-]);
 
 $template = $twig->loadTemplate('index.html.twig');
 echo $template->render([

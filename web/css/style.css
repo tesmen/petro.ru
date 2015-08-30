@@ -79,5 +79,16 @@ div.content{
     margin: 10px auto;
     width: 960px;
     min-height: 800px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+}
+
+.article__title{
+    text-indent: 1.5em;
+    font-size: large;
+
+}
+
+.article__text {
+    text-indent: 1.5em;
+    text-align: justify;
 }

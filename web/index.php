@@ -84,5 +84,3 @@ class PetroBalt
 }
 
 $site = new PetroBalt($app);
-
-?>

@@ -76,8 +76,8 @@ div.wrap__header {
 
 
 div.content{
-    margin: auto;
+    margin: 10px auto;
     width: 960px;
-    height: 800px;
+    min-height: 800px;
     border: 1px solid black;
 }

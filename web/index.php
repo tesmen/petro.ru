@@ -10,7 +10,7 @@ class PetroBalt
     private $twigEnv;
 
 
-    public function __construct($silexApp)
+    public function __construct()
     {
         Twig_Autoloader::register();
         $this->twigLoader = new Twig_Loader_Filesystem('../templates');
@@ -72,14 +72,50 @@ class PetroBalt
 
     public function mainAction()
     {
-        $template = $this->twigEnv->loadTemplate('index.html.twig');
-        echo $template->render([
+        $template = $this->twigEnv->loadTemplate('main.html.twig');
+        return $template->render([
+            'title' => 'Главная',
         ]);
     }
 
     public function aboutAction()
     {
-        return "About";
+        $template = $this->twigEnv->loadTemplate('about.html.twig');
+        return $template->render([
+            'title' => 'О Компании'
+        ]);
+    }
+
+    public function articlesListAction()
+    {
+        $template = $this->twigEnv->loadTemplate('articles.html.twig');
+        return $template->render([
+            'title' => 'Статьи'
+        ]);
+    }
+
+    public function projectsListAction()
+    {
+        $template = $this->twigEnv->loadTemplate('projects.html.twig');
+        return $template->render([
+            'title' => "Проекты"
+        ]);
+    }
+
+    public function newsListAction()
+    {
+        $template = $this->twigEnv->loadTemplate('news.html.twig');
+        return $template->render([
+            'title' => "Новости"
+        ]);
+    }
+
+    public function contactsAction()
+    {
+        $template = $this->twigEnv->loadTemplate('contacts.html.twig');
+        return $template->render([
+            'title' => "Контакты"
+        ]);
     }
 }
 

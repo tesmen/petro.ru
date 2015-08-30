@@ -5,23 +5,43 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $app = new Silex\Application();
 $app['debug'] = true;
 
+class PetroBalt
+{
+    private $silexApp;
 
-/**
- * default route
- */
-$app->get('/', function () use ($app) {
-    return "";;
-});
+    public function __construct($silexApp){
+        $this->silexApp= $silexApp;
 
-/**
- * main route
- */
-$app->get('/{name}/{sec}', function ($sec, $name) {
-    return 'Hello ' . $name . $sec;
-});
+        $this->loadRoutes();
 
-$app->run();
+        $this->silexApp->run();
+    }
 
+    public function init(){
+
+    }
+
+    public function loadRoutes(){
+        $app = $this->silexApp;
+
+        $this->silexApp->get('/', function () use ($app) {
+            return "/";
+        });
+
+        $this->silexApp->get('/{name}/{sec}', function ($sec, $name) {
+            return '{name}/{sec} ' . $name . $sec;
+        });
+    }
+
+    public function mainAction(){
+
+    }
+}
+
+$site = new PetroBalt($app);
+
+?>
+<!--
 
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem('../templates');
@@ -33,4 +53,3 @@ $template = $twig->loadTemplate('index.html.twig');
 echo $template->render([
 
 ]);
-

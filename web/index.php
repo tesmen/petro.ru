@@ -27,15 +27,42 @@ class PetroBalt
 
     }
 
-    public function loadRoutes()
+       public function loadRoutes()
     {
-
         $this->silexApp->get('/', function () {
             return $this->mainAction();
         });
 
         $this->silexApp->get('/about', function () {
             return $this->aboutAction();
+        });
+
+        $this->silexApp->get('/articles', function () {
+            return $this->articlesListAction();
+        });
+
+        $this->silexApp->get('/articles/{id}', function () {
+            return $this->articleAction();
+        });
+
+        $this->silexApp->get('/projects', function () {
+            return $this->projectsListAction();
+        });
+
+        $this->silexApp->get('/projects{id}', function () {
+            return $this->projectAction();
+        });
+
+        $this->silexApp->get('/news', function () {
+            return $this->newsListAction();
+        });
+
+        $this->silexApp->get('/news{id}', function () {
+            return $this->newsReadAction();
+        });
+
+        $this->silexApp->get('/contacts', function () {
+            return $this->contactsAction();
         });
 
 //        $this->silexApp->get('/{name}/{sec}', function ($sec, $name) {
@@ -59,9 +86,3 @@ class PetroBalt
 $site = new PetroBalt($app);
 
 ?>
-<!--
-
-$template = $twig->loadTemplate('index.html.twig');
-echo $template->render([
-
-]);

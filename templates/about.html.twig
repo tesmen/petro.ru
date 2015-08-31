@@ -1,9 +1,7 @@
 {% extends '_base.html.twig' %}
+
 {% block css %}
     <link rel="stylesheet" type="text/css" href="css/slides.css"/>
-{% endblock %}
-
-{% block javascript %}
 {% endblock %}
 
 {% block title %} {{ title }} {% endblock %}
@@ -20,14 +18,60 @@
                              зарубежных компаний и проектируемые суда конкурентоспособны не только в России, но и за
                              рубежом.</p>
     <p class="article__text">В числе наших Заказчиков и Партнеров были такие российские и зарубежные компании как:</p>
-    <table>
-        <tr>
-            <td>
 
-            </td>
-            <td>
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
 
-            </td>
-        </tr>
-    </table>
+    <div class="contragent__container">
+        <img src="img/about/viborg_logo.gif" alt="" class="contragent__logo"/>
+        <img src="img/about/nobiskrug_logo.png" alt="" class="contragent__logo"/>
+        <img src="img/about/adin1_logo.PNG" alt="" class="contragent__logo"/>
+        <img src="img/about/vik_logo.png" alt="" class="contragent__logo"/>
+        <img src="img/about/vimpel_logo.PNG" alt="" class="contragent__logo"/>
+        <img src="img/about/bz_logo.png" alt="" class="contragent__logo__wide"/>
+        <img src="img/about/fosen_logo.PNG" alt="" class="contragent__logo__wide"/>
+        <img src="img/about/ics_logo.gif" alt="" class="contragent__logo__wide"/>
+        <img src="img/about/volgotanker_logo.PNG" alt="" class="contragent__logo__wide"/>
+    </div>
+
+{% endblock %}
+
+
+{% block javascript %}
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function initialize() {
+            var center = new google.maps.LatLng(50, 50);
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 3,
+                center: center,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var cords = [
+                [{lat: 59.93, lng: 30.26}, {lat: 60.7, lng: 28.7}], //vibor
+                [{lat: 59.93, lng: 30.26}, {lat: 44.7, lng: 37.7}], //ortugal
+                [{lat: 59.93, lng: 30.26}, {lat: 54.3, lng: 9.7}], //nobiskrug
+                [{lat: 59.93, lng: 30.26}, {lat: 61.4, lng: 7.3}],//sandvik
+                [{lat: 59.93, lng: 30.26}, {lat: 53.2, lng: 50}], //volgotanker
+                [{lat: 59.93, lng: 30.26}, {lat: 58, lng: 40}] //vimpel + kostrom
+            ];
+
+            for ( var i=0, cord ; cord = cords[i]; i++) {
+                console.log(cord);
+                var flightPath = new google.maps.Polyline({
+                    path: cord,
+                    geodesic: true,
+                    strokeColor: '#1b82c1',
+                    strokeOpacity: 1,
+                    strokeWeight: 1.5
+                });
+                flightPath.setMap(map);
+            }
+
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
 {% endblock %}

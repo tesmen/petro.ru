@@ -109,6 +109,19 @@ div.content {
 
 .contragent__container {
     text-align: center;
+    margin-bottom: 20px;
+}
+
+.article__image__right{
+    /*border: 1px solid dimgrey;*/
+    float: right;
+    padding: 5px;
+}
+
+.article__image__left{
+    /*border: 1px solid dimgrey;*/
+    float: left;
+    padding: 5px;
 }
 
 #map {

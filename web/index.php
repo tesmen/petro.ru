@@ -1,7 +1,18 @@
 <?php
 
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
+if(1){
+    $loader = new Twig_Loader_Filesystem('templates');
+    $twig = new Twig_Environment($loader, array(
+//        'cache' => '/path/to/compilation_cache',
+    ));
+
+    echo $twig->render('maintenance.html.twig', array(
+        'title' => 'Fabien'
+    ));
+}
 
 
 class PetroBalt
@@ -18,17 +29,18 @@ class PetroBalt
 
         $this->silexApp = new Silex\Application();
         $this->silexApp['debug'] = true;
+
+
+
         $this->loadRoutes();
         $this->silexApp->run();
-    }
-
-    public function init()
-    {
 
     }
 
-       public function loadRoutes()
+    public function loadRoutes()
     {
+
+
         $this->silexApp->get('/', function () {
             return $this->mainAction();
         });
@@ -65,6 +77,10 @@ class PetroBalt
             return $this->contactsAction();
         });
 
+        $this->silexApp->get('/maintenance', function () {
+            return $this->contactsAction();
+        });
+
 //        $this->silexApp->get('/{name}/{sec}', function ($sec, $name) {
 //            return $this->aboutAction();
 //        });
@@ -75,7 +91,7 @@ class PetroBalt
         $template = $this->twigEnv->loadTemplate('main.html.twig');
         return $template->render([
             'title' => 'Главная',
-            'page' => 'main'
+            'page'  => 'main'
         ]);
     }
 
@@ -84,7 +100,7 @@ class PetroBalt
         $template = $this->twigEnv->loadTemplate('about.html.twig');
         return $template->render([
             'title' => 'О Компании',
-            'page' => 'about'
+            'page'  => 'about'
         ]);
     }
 
@@ -93,7 +109,7 @@ class PetroBalt
         $template = $this->twigEnv->loadTemplate('articles.html.twig');
         return $template->render([
             'title' => 'Статьи',
-            'page' => 'articles'
+            'page'  => 'articles'
         ]);
     }
 
@@ -102,7 +118,7 @@ class PetroBalt
         $template = $this->twigEnv->loadTemplate('projects.html.twig');
         return $template->render([
             'title' => "Проекты",
-            'page' => 'projects'
+            'page'  => 'projects'
         ]);
     }
 
@@ -111,7 +127,7 @@ class PetroBalt
         $template = $this->twigEnv->loadTemplate('news.html.twig');
         return $template->render([
             'title' => "Новости",
-            'page' => 'news'
+            'page'  => 'news'
         ]);
     }
 
@@ -120,7 +136,16 @@ class PetroBalt
         $template = $this->twigEnv->loadTemplate('contacts.html.twig');
         return $template->render([
             'title' => "Контакты",
-            'page' => 'contacts'
+            'page'  => 'contacts'
+        ]);
+    }
+
+    public function maintenanceAction()
+    {
+        $template = $this->twigEnv->loadTemplate('maintenance.html.twig');
+        return $template->render([
+            'title' => "На обслуживании",
+            'page'  => 'maintenance'
         ]);
     }
 }

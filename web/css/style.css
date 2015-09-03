@@ -147,3 +147,10 @@ div.content {
     width: 100%;
     background-color: #1b82c1;
 }
+
+
+div.maintenance__container{
+    margin-top: 300px;
+    text-align: center;
+
+}

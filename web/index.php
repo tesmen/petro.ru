@@ -10,8 +10,9 @@ if(1){
     ));
 
     echo $twig->render('maintenance.html.twig', array(
-        'title' => 'Fabien'
+        'title' => 'на обслуживании'
     ));
+    exit;
 }
 
 

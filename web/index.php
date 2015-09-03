@@ -13,7 +13,7 @@ class PetroBalt
     public function __construct()
     {
         Twig_Autoloader::register();
-        $this->twigLoader = new Twig_Loader_Filesystem('../templates');
+        $this->twigLoader = new Twig_Loader_Filesystem('templates');
         $this->twigEnv = new Twig_Environment($this->twigLoader, []);
 
         $this->silexApp = new Silex\Application();

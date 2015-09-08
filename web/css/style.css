@@ -1,7 +1,7 @@
 body {
-
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     margin: 0;
-    padding: 0 ;
+    padding: 0;
 }
 
 .inline {
@@ -85,7 +85,13 @@ div.content {
     margin: 10px auto;
     width: 960px;
     min-height: 800px;
-    /*border: 1px solid black;*/
+    border: 1px solid black;
+}
+
+div.spacer {
+    margin: 10px auto;
+    width: 100%;
+    min-height: 20px;
 }
 
 .article__title {
@@ -112,13 +118,13 @@ div.content {
     margin-bottom: 20px;
 }
 
-.article__image__right{
+.article__image__right {
     /*border: 1px solid dimgrey;*/
     float: right;
     padding: 5px;
 }
 
-.article__image__left{
+.article__image__left {
     /*border: 1px solid dimgrey;*/
     float: left;
     padding: 5px;
@@ -148,8 +154,36 @@ div.content {
     background-color: #1b82c1;
 }
 
+.main__page__frame {
+    width: 100%;
+    vertical-align: top;
+}
 
-div.maintenance__container{
+
+.section__title{
+    font-weight: bold;
+    font-size: larger;
+    display: block;
+    margin: 15px 0 15px 40px;
+}
+.activity__item {
+    margin-top: 10px;
+    vertical-align: top;
+}
+.activity__icon {
+    border: 1px solid #1b82c1;
+}
+.activity__text {
+    width: 230px;
+    vertical-align: top;
+}
+.tech__item{
+    display: block;
+    margin: 20px 0;
+}
+
+
+div.maintenance__container {
     margin-top: 300px;
     text-align: center;
 

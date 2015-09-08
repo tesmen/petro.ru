@@ -3,7 +3,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-if(1){
+if(0){
     $loader = new Twig_Loader_Filesystem('templates');
     $twig = new Twig_Environment($loader, array(
 //        'cache' => '/path/to/compilation_cache',
@@ -24,7 +24,6 @@ class PetroBalt
 
     public function __construct()
     {
-        Twig_Autoloader::register();
         $this->twigLoader = new Twig_Loader_Filesystem('templates');
         $this->twigEnv = new Twig_Environment($this->twigLoader, []);
 

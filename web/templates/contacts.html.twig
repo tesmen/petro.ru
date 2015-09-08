@@ -1,11 +1,32 @@
 {% extends '_base.html.twig' %}
 
-{% block javascript %}
-
-{% endblock %}
-
 {% block title %}  {{ title }}  {% endblock %}
 
 {% block content %}
-conacts
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        function initialize() {
+            var center = new google.maps.LatLng(59.92513546, 30.2560097);
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: center,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var ptr = {lat: 59.92513546, lng: 30.2560097};
+            var marker = new google.maps.Marker({
+                position: ptr,
+                map: map
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
 {% endblock %}

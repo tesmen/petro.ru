@@ -6,6 +6,17 @@
     <div id="map-container">
         <div id="map"></div>
     </div>
+    <div class="section__title">Контакты:</div>
+    <p class="contacts__text">ООО ПКБ «Петробалт» Россия</p>
+    <p class="contacts__text">199106, п/я 789, г. Санкт-Петербург, Косая линия, 16</p>
+    <p class="contacts__text">Телефоны: +7 (812) 322 6839, +7 (812) 327 7712</p>
+    <p class="contacts__text">Факс: +7 (812) 327 7895</p>
+    <p class="contacts__text">E-mail: office@petrobalt.ru</p>
+
+    <div class="section__title">Руководители компании:</div>
+    <p class="contacts__text"> Генеральный директор – Щербаков Илья Вадимович</p>
+    <p class="contacts__text">Технический директор – Топчий Тарас Анатольевич</p>
+
 
 {% endblock %}
 
@@ -15,16 +26,31 @@
         function initialize() {
             var center = new google.maps.LatLng(59.92513546, 30.2560097);
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 15,
+                zoom: 14,
                 center: center,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
+            var contentString =
+                            '<center>' +
+                            '<b>ООО ПКБ «Петробалт» Россия</b><br>' +
+                            'Косая линия ВО, 16<br>' +
+                            '(территория Балтийского завода)' +
+                            '</center>'
+
+
+                    ;
 
             var ptr = {lat: 59.92513546, lng: 30.2560097};
             var marker = new google.maps.Marker({
                 position: ptr,
                 map: map
             });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            infowindow.open(map, marker);
         }
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>

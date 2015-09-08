@@ -94,10 +94,14 @@ div.spacer {
 .article__title {
     text-indent: 1.5em;
     font-size: large;
-
 }
 
 .article__text {
+    text-indent: 1.5em;
+    text-align: justify;
+}
+
+.contacts__text {
     text-indent: 1.5em;
     text-align: justify;
 }

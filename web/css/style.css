@@ -6,7 +6,6 @@ body {
 
 .inline {
     display: inline-block;
-
 }
 
 div.wrap {
@@ -84,8 +83,6 @@ div.wrap__header {
 div.content {
     margin: 10px auto;
     width: 960px;
-    min-height: 800px;
-    border: 1px solid black;
 }
 
 div.spacer {
@@ -158,8 +155,6 @@ div.spacer {
     width: 100%;
     vertical-align: top;
 }
-
-
 .section__title{
     font-weight: bold;
     font-size: larger;

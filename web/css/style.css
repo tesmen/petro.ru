@@ -101,7 +101,14 @@ div.spacer {
     text-align: justify;
 }
 
+.contacts__item {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+
 .contacts__text {
+    display: inline-block;
     text-indent: 1.5em;
     text-align: justify;
 }
@@ -159,28 +166,32 @@ div.spacer {
     width: 100%;
     vertical-align: top;
 }
-.section__title{
+
+.section__title {
     font-weight: bold;
-    font-size: larger;
+    font-size: large;
     display: block;
     margin: 15px 0 15px 40px;
 }
+
 .activity__item {
     margin-top: 10px;
     vertical-align: top;
 }
+
 .activity__icon {
     border: 1px solid #1b82c1;
 }
+
 .activity__text {
     width: 230px;
     vertical-align: top;
 }
-.tech__item{
+
+.tech__item {
     display: block;
     margin: 20px 0;
 }
-
 
 div.maintenance__container {
     margin-top: 300px;

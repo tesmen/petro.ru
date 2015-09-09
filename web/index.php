@@ -3,10 +3,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-if(0){
+if (0) {
     $loader = new Twig_Loader_Filesystem('templates');
-    $twig = new Twig_Environment($loader, array(
-//        'cache' => '/path/to/compilation_cache',
+    $twig = new Twig_Environment($loader, array(//        'cache' => '/path/to/compilation_cache',
     ));
 
     echo $twig->render('maintenance.html.twig', array(
@@ -29,7 +28,6 @@ class PetroBalt
 
         $this->silexApp = new Silex\Application();
         $this->silexApp['debug'] = true;
-
 
 
         $this->loadRoutes();
@@ -115,10 +113,14 @@ class PetroBalt
 
     public function projectsListAction()
     {
+        include('templates/projects.php');
+
+
         $template = $this->twigEnv->loadTemplate('projects.html.twig');
         return $template->render([
-            'title' => "Проекты",
-            'page'  => 'projects'
+            'title'    => "Проекты",
+            'page'     => 'projects',
+            'projects' => $projects,
         ]);
     }
 

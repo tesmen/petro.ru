@@ -1,8 +1,9 @@
 #slides {
     margin: 20px auto;
     width: 100%;
-    height: 200px;
+    height: 202px;
     border: solid 1px #000000;
+    box-shadow: #666666 0 0 15px;
 }
 
 .slides,

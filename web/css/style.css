@@ -154,6 +154,11 @@ div.spacer {
 }
 
 .footer {
+    font-size: 10pt;
+    color: #eeeeee;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
     position: relative;
     bottom: 0;
     margin-top: 20px;
@@ -161,6 +166,7 @@ div.spacer {
     width: 100%;
     background-color: #1b82c1;
 }
+
 
 .main__page__frame {
     width: 100%;

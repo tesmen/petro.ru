@@ -2,7 +2,7 @@
 
 {% block css %}
     <style>
-        .projects__table td{
+        .projects__table td {
             margin: 3px;
             border-bottom: 1px solid #888888;
             height: 40px;
@@ -29,16 +29,39 @@
         }
 
         .type {
+            width: 300px;
             text-align: left;
         }
 
         .work {
-            width: 50px;
+            width: 200px;
             text-align: center;
         }
 
         .finished {
             background-color: rgba(150, 255, 150, 0.27);
+        }
+
+        .recent__project {
+            margin: 10px;
+            display: inline-block;
+            width: 450px;
+            position: relative;
+        }
+
+        .recent__project img {
+            width: 450px;
+        }
+
+        .project__title {
+            padding: 3px;
+            font-size: 10pt;
+            color: #eeeeee;
+            width: 100%;
+            background-color: rgba(28, 110, 133, 0.75);
+            position: absolute;
+            bottom: 0;
+
         }
     </style>
 
@@ -51,27 +74,52 @@
 
 {% block content %}
 
-    <div class="section__title">Проекты, выполненные ПКБ "Петробалт"</div>
+    <div class="section__title">Суда разработанные при полном или частичном участии ПКБ «Петробалт»</div>
 
-    Рабочая конструкторская документация (РКД)
-    плазово - технологическая документация (ПТД)
-    приемо-сдаточная документация (ПСД)
-    эксплуатационная документация (ЭД)
+    <div class="recent__project">
+        <img src="img/projects/ships/22120.jpg" alt=""/>
+
+        <div class="project__title">Проект 22120. Патрульное судно ледового класса.</div>
+    </div>
+
+    <div class="recent__project">
+        <img src="img/projects/ships/sds08.jpg" alt=""/>
+        <div class="project__title">Проект SDS08. Морское водолазное судно.</div>
+    </div>
+
+    <div class="recent__project">
+        <img src="img/projects/ships/1293.jpg" alt=""/>
+        <div class="project__title">Проект 1293. Автомобильно-пассажирский паром.</div>
+    </div>
+
+    <div class="recent__project">
+        <img src="img/projects/ships/rst25.jpg" alt=""/>
+        <div class="project__title">Проект RST 25. Танкер.</div>
+    </div>
+
+    <div class="section__title">Перечень проектов судов разработки ООО ПКБ «Петробалт»"</div>
+
+    <p>Рабочая конструкторская документация (РКД)</p>
+    <p>Плазово - технологическая документация (ПТД)</p>
+    <p>Приемо-сдаточная документация (ПСД)</p>
+    <p>Эксплуатационная документация (ЭД)</p>
+    <p>Классификационный проект (КП)</p>
 
     <table class="projects__table">
         <tr>
             <th class="year">Год
-            </td>
+            </th>
             <th class="vendor">Заказчик проекта
-            </td>
+            </th>
             <th class="country">Страна
-            </td>
-            <th class="number">№
-            </td>
+            </th>
+            <th class="number">№ проекта или судна
+
+            </th>
             <th class="type">Тип судна
-            </td>
+            </th>
             <th class="work">Вид выполненных работ
-            </td>
+            </th>
             {#<th class="finished">В полном объеме- *</td>#}
         </tr>
         {% for project in projects %}

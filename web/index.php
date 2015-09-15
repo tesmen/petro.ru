@@ -63,7 +63,7 @@ class PetroBalt
             return $this->projectAction();
         });
 
-        $this->silexApp->get('/news', function () {
+        $this->silexApp->get('/educationCenter', function () {
             return $this->newsListAction();
         });
 
@@ -128,8 +128,8 @@ class PetroBalt
     {
         $template = $this->twigEnv->loadTemplate('news.html.twig');
         return $template->render([
-            'title' => "Новости",
-            'page'  => 'news'
+            'title' => "Учебный центр",
+            'page'  => 'educationCenter'
         ]);
     }
 

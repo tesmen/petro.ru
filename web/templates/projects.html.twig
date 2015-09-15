@@ -14,22 +14,22 @@
         }
 
         .vendor {
-            width: 250px;
+            width: 350px;
             text-align: left;
         }
 
         .country {
-            width: 50px;
+            width: 100px;
             text-align: center;
         }
 
         .number {
-            width: 30px;
+            width: 150px;
             text-align: center;
         }
 
         .type {
-            width: 300px;
+            width: 250px;
             text-align: left;
         }
 
@@ -118,8 +118,8 @@
             </th>
             <th class="type">Тип судна
             </th>
-            <th class="work">Вид выполненных работ
-            </th>
+            {#<th class="work">Вид выполненных работ#}
+            {#</th>#}
             {#<th class="finished">В полном объеме- *</td>#}
         </tr>
         {% for project in projects %}
@@ -129,7 +129,7 @@
                 <td class="country">{{ project[2] }}</td>
                 <td class="number">{{ project[3] }}</td>
                 <td class="type">{{ project[4] }}</td>
-                <td class="work">{{ project[5] }}
+                {#<td class="work">{{ project[5] }}#}
                     {#{%   if ('ed' in project[5]) %}  <img src="img/projects/ed.png" alt="ed"> {% endif %}#}
                     {#{%   if ('psd' in project[5]) %} <img src="img/projects/psd.png" alt="psd"> {% endif %}#}
                     {#{%   if ('ptd' in project[5]) %} <img src="img/projects/ptd.png" alt="ptd"> {% endif %}#}

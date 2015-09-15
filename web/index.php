@@ -113,9 +113,7 @@ class PetroBalt
 
     public function projectsListAction()
     {
-        include('templates/projects.php');
-
-
+        include('templates/projects1.php');
         $template = $this->twigEnv->loadTemplate('projects.html.twig');
         return $template->render([
             'title'    => "Проекты",

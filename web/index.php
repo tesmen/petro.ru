@@ -3,17 +3,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-if (0) {
-    $loader = new Twig_Loader_Filesystem('templates');
-    $twig = new Twig_Environment($loader, array(//        'cache' => '/path/to/compilation_cache',
-    ));
-
-    echo $twig->render('maintenance.html.twig', array(
-        'title' => 'на обслуживании'
-    ));
-    exit;
-}
-
 
 class PetroBalt
 {

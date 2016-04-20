@@ -3,77 +3,14 @@
 {% block title %}  {{ title }}  {% endblock %}
 
 {% block content %}
-    <div id="map-container">
-        <div id="map"></div>
-    </div>
-    <div class="section__title">Контакты:</div>
-    <p class="contacts__text">ООО ПКБ «Петробалт» Россия</p>
-    <br>
+    <div class="section__title">Загрузка файла "IBSV01-*****"</div>
+    <p class="contacts__text">принимаются файлы в формате .xslx (без макросов)</p>
 
-    <p class="contacts__item">Адрес:</p>
-    <p class="contacts__text">199106, п/я 789, г. Санкт-Петербург, Косая линия, 16</p>
-    <br>
-
-    <p class="contacts__item">Телефоны:</p>
-    <p class="contacts__text"> +7 (812) <b>322 68 39</b>, +7 (812) <b>327 77 12</b></p>
-    <br>
-
-    <p class="contacts__item">Факс:</p>
-    <p class="contacts__text"> +7 (812) <b>327 78 95</b></p>
-    <br>
-
-    <p class="contacts__item">E-mail:</p>
-    <p class="contacts__text"> office@petrobalt.ru</p>
-
-    <div class="section__title">Руководители компании:</div>
-
-    <p class="contacts__item">Генеральный директор:</p>
-    <p class="contacts__text"><b>Щербаков Илья Вадимович</b></p>
-    <br>
-
-    <p class="contacts__item">Технический директор:</p>
-    <p class="contacts__text"><b>Топчий Тарас Анатольевич</b></p>
-
-
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="userfile"/>
+        <input type="submit"/>
+    </form>
 {% endblock %}
 
 {% block javascript %}
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script>
-        function initialize() {
-            var center = new google.maps.LatLng(59.92513546, 30.2560097);
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14,
-                center: center,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
-            var contentString =
-                            '<center>' +
-                            '<b>ООО ПКБ «Петробалт» Россия</b><br>' +
-                            'Косая линия ВО, 16<br>' +
-                            '(территория Балтийского завода)' +
-                            '</center>'
-
-
-                    ;
-
-            var ptr = {lat: 59.92513546, lng: 30.2560097};
-            var marker = new google.maps.Marker({
-                position: ptr,
-                map: map
-            });
-
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-
-            marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
-
-            infowindow.open(map, marker);
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-
 {% endblock %}

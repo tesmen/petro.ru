@@ -69,6 +69,10 @@ class PetroBalt
             return $this->crunchAction();
         });
 
+        $this->silexApp->post('/crunch', function () {
+            return $this->crunchAction(true);
+        });
+
 //        $this->silexApp->get('/{name}/{sec}', function ($sec, $name) {
 //            return $this->aboutAction();
 //        });
@@ -146,8 +150,21 @@ class PetroBalt
         ]);
     }
 
-    public function crunchAction()
+    public function crunchAction($isPost = false)
     {
+        if ($isPost) {
+            $uploaddir = '/uploads/';
+            $uploadfile = __DIR__ . $uploaddir . basename($_FILES['userfile']['name']);
+
+            if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+                echo "Файл корректен и был успешно загружен.\n";
+            }
+
+            print_r($_FILES);
+
+            exit;
+        }
+
         $template = $this->twigEnv->loadTemplate('crunch.html.twig');
 
         return $template->render([

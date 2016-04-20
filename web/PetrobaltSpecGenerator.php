@@ -152,5 +152,7 @@ class PetrobaltSpecGenerator
     {
         $detailsArrayData = $this->getDetailsArrayData();
         $this->writeResult($detailsArrayData, $fileName);
+
+        return true;
     }
 }

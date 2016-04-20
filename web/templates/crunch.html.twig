@@ -7,9 +7,18 @@
     <p class="contacts__text">принимаются файлы в формате .xslx (без макросов)</p>
 
     <form method="post" enctype="multipart/form-data">
-        <input type="file" name="userfile"/>
+        <input type="file" name="userfile" required="required"/><br>
         <input type="submit"/>
     </form>
+
+    {% if success is not null %}
+        <a href="http://petrobalt.local/{{ fileLink }}">{{ fileLink }}</a>
+    {% endif %}
+
+    {% if message is not null %}
+        Произошла ошибка: <br/>
+        {{ message }}
+    {% endif %}
 {% endblock %}
 
 {% block javascript %}

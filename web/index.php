@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 
 require_once '/../vendor/autoload.php';
 require_once 'PetrobaltSpecGenerator.php';
@@ -154,19 +155,25 @@ class PetroBalt
     public function crunchAction($isPost = false)
     {
         $resultFileName = null;
+        $message = null;
+        $success = null;
 
         if ($isPost) {
-            $uploaddir = '/uploads/';
-            $uploadfile = __DIR__ . $uploaddir . basename($_FILES['userfile']['name']);
+            try {
+                $uploadDir = '/uploads/';
+                $uploadFile = __DIR__ . $uploadDir . basename($_FILES['userfile']['name']);
 
-            if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-                echo "Файл корректен и был успешно загружен.\n";
+                if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadFile)) {
+                    //  echo "Файл корректен и был успешно загружен.\n";
+                }
+
+                $resultFileName = 'csv/' . $_FILES['userfile']['name'];
+                $resultFileName = str_replace('xlsx', 'csv', $resultFileName);
+                $spec = new PetrobaltSpecGenerator($uploadFile);
+                $success = $spec->getMyCsv($resultFileName);
+            } catch (\Exception $e) {
+                $message = $e->getMessage();
             }
-
-            $resultFileName = 'csv/' . $_FILES['userfile']['name'];
-
-            $spec = new PetrobaltSpecGenerator($uploadfile);
-            $spec->getMyCsv($resultFileName);
         }
 
         $template = $this->twigEnv->loadTemplate('crunch.html.twig');
@@ -174,7 +181,9 @@ class PetroBalt
         return $template->render([
             'title'    => "Супер Эксель",
             'page'     => 'maintenance',
-            'fileLink' => $resultFileName
+            'fileLink' => $resultFileName,
+            'message'  => $message,
+            'success'  => $success
         ]);
     }
 }

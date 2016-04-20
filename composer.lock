@@ -4,8 +4,66 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e51e5264c99d07f825237fc1097242d9",
+    "hash": "18a3bb0bc826af0f23682cf982ec0486",
+    "content-hash": "331c23b407fcf43c38d25875f335c5c3",
     "packages": [
+        {
+            "name": "phpoffice/phpexcel",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPExcel.git",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xml": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPExcel": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Maarten Balliauw",
+                    "homepage": "http://blog.maartenballiauw.be"
+                },
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "http://blog.rootslabs.net"
+                },
+                {
+                    "name": "Erik Tilt"
+                }
+            ],
+            "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+            "homepage": "http://phpexcel.codeplex.com",
+            "keywords": [
+                "OpenXML",
+                "excel",
+                "php",
+                "spreadsheet",
+                "xls",
+                "xlsx"
+            ],
+            "time": "2015-05-01 07:00:55"
+        },
         {
             "name": "pimple/pimple",
             "version": "v1.1.1",
@@ -177,12 +235,12 @@
             "version": "v2.7.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Debug.git",
+                "url": "https://github.com/symfony/debug.git",
                 "reference": "9daa1bf9f7e615fa2fba30357e479a90141222e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/9daa1bf9f7e615fa2fba30357e479a90141222e3",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/9daa1bf9f7e615fa2fba30357e479a90141222e3",
                 "reference": "9daa1bf9f7e615fa2fba30357e479a90141222e3",
                 "shasum": ""
             },
@@ -237,12 +295,12 @@
             "version": "v2.7.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/EventDispatcher.git",
+                "url": "https://github.com/symfony/event-dispatcher.git",
                 "reference": "9310b5f9a87ec2ea75d20fec0b0017c77c66dac3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/9310b5f9a87ec2ea75d20fec0b0017c77c66dac3",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9310b5f9a87ec2ea75d20fec0b0017c77c66dac3",
                 "reference": "9310b5f9a87ec2ea75d20fec0b0017c77c66dac3",
                 "shasum": ""
             },
@@ -295,12 +353,12 @@
             "version": "v2.7.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/HttpFoundation.git",
+                "url": "https://github.com/symfony/http-foundation.git",
                 "reference": "863af6898081b34c65d42100c370b9f3c51b70ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/863af6898081b34c65d42100c370b9f3c51b70ca",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/863af6898081b34c65d42100c370b9f3c51b70ca",
                 "reference": "863af6898081b34c65d42100c370b9f3c51b70ca",
                 "shasum": ""
             },
@@ -348,12 +406,12 @@
             "version": "v2.7.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/HttpKernel.git",
+                "url": "https://github.com/symfony/http-kernel.git",
                 "reference": "405d3e7a59ff7a28ec469441326a0ac79065ea98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/405d3e7a59ff7a28ec469441326a0ac79065ea98",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/405d3e7a59ff7a28ec469441326a0ac79065ea98",
                 "reference": "405d3e7a59ff7a28ec469441326a0ac79065ea98",
                 "shasum": ""
             },
@@ -428,12 +486,12 @@
             "version": "v2.7.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Routing.git",
+                "url": "https://github.com/symfony/routing.git",
                 "reference": "ea9134f277162b02e5f80ac058b75a77637b0d26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/ea9134f277162b02e5f80ac058b75a77637b0d26",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/ea9134f277162b02e5f80ac058b75a77637b0d26",
                 "reference": "ea9134f277162b02e5f80ac058b75a77637b0d26",
                 "shasum": ""
             },

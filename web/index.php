@@ -1,7 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
+require_once '/../vendor/autoload.php';
+require_once 'PetrobaltSpecGenerator.php';
+require_once 'Detail.php';
 
 class PetroBalt
 {
@@ -152,6 +153,8 @@ class PetroBalt
 
     public function crunchAction($isPost = false)
     {
+        $resultFileName = null;
+
         if ($isPost) {
             $uploaddir = '/uploads/';
             $uploadfile = __DIR__ . $uploaddir . basename($_FILES['userfile']['name']);
@@ -160,16 +163,18 @@ class PetroBalt
                 echo "Файл корректен и был успешно загружен.\n";
             }
 
-            print_r($_FILES);
+            $resultFileName = 'csv/' . $_FILES['userfile']['name'];
 
-            exit;
+            $spec = new PetrobaltSpecGenerator($uploadfile);
+            $spec->getMyCsv($resultFileName);
         }
 
         $template = $this->twigEnv->loadTemplate('crunch.html.twig');
 
         return $template->render([
-            'title' => "На обслуживании",
-            'page'  => 'maintenance'
+            'title'    => "Супер Эксель",
+            'page'     => 'maintenance',
+            'fileLink' => $resultFileName
         ]);
     }
 }

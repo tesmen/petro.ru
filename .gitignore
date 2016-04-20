@@ -1,4 +1,6 @@
 /.idea
 /vendor
 /cache
+/web/uploads
+/web/csv
 composer.phar

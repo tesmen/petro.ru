@@ -1,6 +1,5 @@
 <?php
 
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
 
@@ -26,8 +25,6 @@ class PetroBalt
 
     public function loadRoutes()
     {
-
-
         $this->silexApp->get('/', function () {
             return $this->mainAction();
         });
@@ -68,6 +65,10 @@ class PetroBalt
             return $this->contactsAction();
         });
 
+        $this->silexApp->get('/crunch', function () {
+            return $this->crunchAction();
+        });
+
 //        $this->silexApp->get('/{name}/{sec}', function ($sec, $name) {
 //            return $this->aboutAction();
 //        });
@@ -76,6 +77,7 @@ class PetroBalt
     public function mainAction()
     {
         $template = $this->twigEnv->loadTemplate('main.html.twig');
+
         return $template->render([
             'title' => 'Главная',
             'page'  => 'main'
@@ -85,6 +87,7 @@ class PetroBalt
     public function aboutAction()
     {
         $template = $this->twigEnv->loadTemplate('about.html.twig');
+
         return $template->render([
             'title' => 'О Компании',
             'page'  => 'about'
@@ -94,6 +97,7 @@ class PetroBalt
     public function articlesListAction()
     {
         $template = $this->twigEnv->loadTemplate('articles.html.twig');
+
         return $template->render([
             'title' => 'Статьи',
             'page'  => 'articles'
@@ -104,6 +108,7 @@ class PetroBalt
     {
         include('templates/projects1.php');
         $template = $this->twigEnv->loadTemplate('projects.html.twig');
+
         return $template->render([
             'title'    => "Проекты",
             'page'     => 'projects',
@@ -114,6 +119,7 @@ class PetroBalt
     public function newsListAction()
     {
         $template = $this->twigEnv->loadTemplate('news.html.twig');
+
         return $template->render([
             'title' => "Учебный центр",
             'page'  => 'educationCenter'
@@ -123,6 +129,7 @@ class PetroBalt
     public function contactsAction()
     {
         $template = $this->twigEnv->loadTemplate('contacts.html.twig');
+
         return $template->render([
             'title' => "Контакты",
             'page'  => 'contacts'
@@ -132,6 +139,17 @@ class PetroBalt
     public function maintenanceAction()
     {
         $template = $this->twigEnv->loadTemplate('maintenance.html.twig');
+
+        return $template->render([
+            'title' => "На обслуживании",
+            'page'  => 'maintenance'
+        ]);
+    }
+
+    public function crunchAction()
+    {
+        $template = $this->twigEnv->loadTemplate('crunch.html.twig');
+
         return $template->render([
             'title' => "На обслуживании",
             'page'  => 'maintenance'

@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 
-require_once '/../vendor/autoload.php';
+require_once '../vendor/autoload.php';
 require_once 'PetrobaltSpecGenerator.php';
 require_once 'Detail.php';
 
@@ -112,7 +112,7 @@ class PetroBalt
 
     public function projectsListAction()
     {
-        include('templates/projects1.php');
+        $projects = include('templates/projects1.php');
         $template = $this->twigEnv->loadTemplate('projects.html.twig');
 
         return $template->render([

@@ -1,15 +1,6 @@
-$(document).foundation();
-
-$('.magnific, .imageholder a').magnificPopup({
-    type: 'image',
-    gallery: { enabled: true },
-    disableOn: 400,
-    closeBtnInside: true,
-    enableEscapeKey: true,
-    mainClass: 'mfp-with-zoom',
-    zoom: {
-        enabled: true,
-        duration: 300,
-        easing: 'ease-in-out'
-    }
+$(function() {
+    $('.image_pop').on('click', function() {
+        $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+        $('#imagemodal').modal('show');
+    });
 });

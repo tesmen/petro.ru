@@ -10,15 +10,29 @@
     <title>{% block title %}{% endblock %} ООО Петробалт</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/foundation.css"/>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css"/>
     {% block css %}    {% endblock %}
     <script src="js/jquery.min.js"></script>
-    <script src="js/foundation.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
 </head>
 <body>
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+
+                <img src="" class="imagepreview" style="width: 100%;" >
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="wrap">
     <div class="wrap__header">

@@ -2,8 +2,6 @@
 //error_reporting(0);
 
 require_once '../vendor/autoload.php';
-require_once 'PetrobaltSpecGenerator.php';
-require_once 'Detail.php';
 
 class PetroBalt
 {

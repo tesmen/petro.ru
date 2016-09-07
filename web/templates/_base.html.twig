@@ -25,9 +25,8 @@
             </a>
         </div>
         <a class="nav__item{% if page == "about" %}__selected{% endif %}" href="/about"><span>О КОМПАНИИ</span></a>
-        {#<a class="nav__item{% if page == "articles" %}__selected{% endif %}" href="/articles"><span>СТАТЬИ</span></a>#}
         <a class="nav__item{% if page == "projects" %}__selected{% endif %}" href="/projects"><span>ПРОЕКТЫ</span></a>
-        <a class="nav__item{% if page == "educationCenter" %}__selected{% endif %}" href="/educationCenter"><span>УЧЕБНЫЙ ЦЕНТР</span></a>
+        <a class="nav__item{% if page == "educationCenter" %}__selected{% endif %}" href="/news"><span>НОВОСТИ</span></a>
         <a class="nav__item{% if page == "contacts" %}__selected{% endif %}" href="/contacts"><span>КОНТАКТЫ</span></a>
     </div>
     <div class="content">
@@ -39,7 +38,7 @@
 <script src="js/counter.js"></script>
 
 <footer>
-    © 2015 ООО ПКБ «Петробалт»
+    © {{ now | date('Y')  }} ООО ПКБ «Петробалт»
 </footer>
 
 </body>

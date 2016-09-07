@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 
 require_once '../vendor/autoload.php';
 require_once 'PetrobaltSpecGenerator.php';
@@ -15,6 +15,7 @@ class PetroBalt
     {
         $this->twigLoader = new Twig_Loader_Filesystem('templates');
         $this->twigEnv = new Twig_Environment($this->twigLoader, []);
+        $this->twigEnv->setCache(false);
 
         $this->silexApp = new Silex\Application();
         $this->silexApp['debug'] = true;
@@ -55,7 +56,7 @@ class PetroBalt
             return $this->newsListAction();
         });
 
-        $this->silexApp->get('/news{id}', function () {
+        $this->silexApp->get('/news/{id}', function () {
             return $this->newsReadAction();
         });
 
@@ -67,17 +68,9 @@ class PetroBalt
             return $this->contactsAction();
         });
 
-        $this->silexApp->get('/crunch', function () {
-            return $this->crunchAction();
+        $this->silexApp->get('/hidden', function () {
+            return $this->hiddenAction();
         });
-
-        $this->silexApp->post('/crunch', function () {
-            return $this->crunchAction(true);
-        });
-
-//        $this->silexApp->get('/{name}/{sec}', function ($sec, $name) {
-//            return $this->aboutAction();
-//        });
     }
 
     public function mainAction()
@@ -112,10 +105,10 @@ class PetroBalt
 
     public function projectsListAction()
     {
-        $projects = include('templates/projects1.php');
-        $template = $this->twigEnv->loadTemplate('projects.html.twig');
+        $projects = [];
+        include('templates/projects1.php');
 
-        return $template->render([
+        return $this->twigEnv->loadTemplate('projects.html.twig')->render([
             'title'    => "Проекты",
             'page'     => 'projects',
             'projects' => $projects,
@@ -152,38 +145,11 @@ class PetroBalt
         ]);
     }
 
-    public function crunchAction($isPost = false)
+    public function hiddenAction()
     {
-        $resultFileName = null;
-        $message = null;
-        $success = null;
-
-        if ($isPost) {
-            try {
-                $uploadDir = '/uploads/';
-                $uploadFile = __DIR__ . $uploadDir . basename($_FILES['userfile']['name']);
-
-                if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadFile)) {
-                    //  echo "Файл корректен и был успешно загружен.\n";
-                }
-
-                $resultFileName = 'csv/' . $_FILES['userfile']['name'];
-                $resultFileName = str_replace('xlsx', 'csv', $resultFileName);
-                $spec = new PetrobaltSpecGenerator($uploadFile);
-                $success = $spec->getMyCsv($resultFileName);
-            } catch (\Exception $e) {
-                $message = $e->getMessage();
-            }
-        }
-
-        $template = $this->twigEnv->loadTemplate('crunch.html.twig');
-
-        return $template->render([
-            'title'    => "Супер Эксель",
-            'page'     => 'maintenance',
-            'fileLink' => $resultFileName,
-            'message'  => $message,
-            'success'  => $success
+        return $this->twigEnv->loadTemplate('hidden.html.twig')->render([
+            'title' => "Новость",
+            'page'  => 'hidden'
         ]);
     }
 }

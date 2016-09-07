@@ -8,12 +8,14 @@
 
 {% block title %}  {{ title }}  {% endblock %}
 
-{% set news = {'7.09.2016':""} %}
+{% set news = {
+1:{date: '7.09.2016', img: '1.jpg'},
+} %}
 
 {% block content %}
     <div>
-        {% for date, article in news %}
-        <p class="article__title">Раздел находится в разработке</p>
+        {% for article in news %}
+            <p class="article__title">Раздел находится в разработке</p>
         {% endfor %}
     </div>
 {% endblock %}

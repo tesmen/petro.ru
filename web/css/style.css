@@ -97,6 +97,7 @@ div.spacer {
 }
 
 .article__text {
+    font-size: 17px;
     text-indent: 1.5em;
     text-align: justify;
 }
@@ -203,4 +204,17 @@ div.maintenance__container {
     margin-top: 300px;
     text-align: center;
 
+}
+
+div.imageholder {
+    background-color: #FFF;
+    border: 1px solid #BBBBBB;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    padding: 4px;
+    float: right;
+    margin: 8px;
+}
+
+.gray_text{
+    color: gray;
 }
